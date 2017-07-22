@@ -36,9 +36,14 @@ public class BasicDocument extends Document
 	{
 		//TODO: Implement this method in week 2 according to the comments above.  
 		// See the Module 2 support videos if you need help.
-	    return 0;
+		 int numberOfWords=0;
+		 numberOfWords=this.getWords().size();
+	     return numberOfWords;
 	}
-	
+	public List<String> getWords()
+	{
+	     return this.getTokens("[a-zA-Z]+");
+	}
 	/**
 	 * Get the number of sentences in the document.
 	 * Sentences are defined as contiguous strings of characters ending in an 
@@ -54,11 +59,11 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumSentences()
 	{
-	    //TODO: Implement this method.  See the Module 2 support videos 
-        // if you need help.
-        return 0;
+	    int numberOfSentences=0;
+	    numberOfSentences=this.getTokens("[^.?!]+").size();
+        return numberOfSentences;
 	}
-	
+
 	/**
 	 * Get the total number of syllables in the document (the stored text). 
 	 * To count the number of syllables in a word, it uses the following rules:
@@ -76,12 +81,13 @@ public class BasicDocument extends Document
 	@Override
 	public int getNumSyllables()
 	{
-	    //TODO: Implement this method in week 2.  See the Module 2 support videos 
-        // if you need help.  And note that there is no need to use a regular
-		// expression for the syllable counting.  We recommend you implement 
-		// the helper function countSyllables in Document.java using a loop, 
-		// and then call it here on each word.
-        return 0;
+	    int numberOfSyllables=0;
+	    for(String S : this.getWords())
+	    {
+	    	numberOfSyllables=numberOfSyllables+countSyllables(S);
+	    }
+        return numberOfSyllables;
+
 	}
 	
 	
