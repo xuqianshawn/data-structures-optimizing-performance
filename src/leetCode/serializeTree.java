@@ -2,20 +2,20 @@ package leetCode;
 import java.lang.reflect.Array;
 import java.util.*;
 public class serializeTree {
-	 public static TreeNode deserializeTree(String treeStr){
+	 public static TreeNode<Integer> deserializeTree(String treeStr){
 		 String[] treeVals=treeStr.split(",");
-		TreeNode root=new TreeNode(-1);
+		TreeNode<Integer> root=new TreeNode<Integer>(-1);
 		populateTree(root,treeVals,0);
 		 return root;
 	 }
-	 private static void populateTree(TreeNode t, Object[] resultArry, int number)
+	 private static void populateTree(TreeNode<Integer> t, Object[] resultArry, int number)
 	 {
 		 t.val=Integer.parseInt(resultArry[number].toString());
 		 if((2*number+1)<resultArry.length)
 		 {
 			 if(!resultArry[2*number+1].equals("-1"))
 			 {
-			  TreeNode tmp=new TreeNode(-1);
+			  TreeNode<Integer> tmp=new TreeNode<Integer>(-1);
 			  t.left=tmp;
 			 populateTree(tmp,resultArry,2*number+1);
 			 }			 
@@ -24,13 +24,13 @@ public class serializeTree {
 		 {
 			 if(!resultArry[2*number+2].equals("-1"))
 			 {
-			  TreeNode tmp=new TreeNode(-1);
+			  TreeNode<Integer> tmp=new TreeNode<Integer>(-1);
 			  t.right=tmp;
 			 populateTree(tmp,resultArry,2*number+2);
 			 }			 
 		 }
 	 }
-    public static String serializeTree(TreeNode t){
+    public static String serializeTree(TreeNode<Integer> t){
     Object[] resultArry=new Object[50];	
     Arrays.fill(resultArry, -1);
     populateArray(t,resultArry,0);
@@ -53,7 +53,7 @@ public class serializeTree {
     return resultArrayString;	
     }
     
-    private static void populateArray(TreeNode t, Object[] resultArry, int number)
+    private static void populateArray(TreeNode<Integer> t, Object[] resultArry, int number)
     {
     	resultArry[number]=t.val;
     	if(t.left!=null){
@@ -65,16 +65,16 @@ public class serializeTree {
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        TreeNode t1=new TreeNode(1);
-        TreeNode t3=new TreeNode(3);
-        TreeNode t2=new TreeNode(2);
-        TreeNode t5=new TreeNode(5);
+        TreeNode<Integer> t1=new TreeNode<Integer>(1);
+        TreeNode<Integer> t3=new TreeNode<Integer>(3);
+        TreeNode<Integer> t2=new TreeNode<Integer>(2);
+        TreeNode<Integer> t5=new TreeNode<Integer>(5);
         t1.left=t3;
         t1.right=t2;
         t2.right=t5;
         String treeStr=serializeTree(t1);
         System.out.println(treeStr);
-        TreeNode root=deserializeTree(treeStr);
+        TreeNode<Integer> root=deserializeTree(treeStr);
 	}
 
 }
