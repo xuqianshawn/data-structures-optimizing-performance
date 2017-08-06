@@ -17,7 +17,7 @@ public class MergeTwoTree {
         	return t1;
         }
 		TreeNode temp = new TreeNode(0);
-		temp.val=t1.val+t2.val;
+		temp.val=Integer.parseInt(t1.val.toString())+Integer.parseInt(t2.val.toString());
 		temp.left=mergeTrees(t1.left, t2.left);
 		temp.right=mergeTrees(t1.right, t2.right);
 		return temp;

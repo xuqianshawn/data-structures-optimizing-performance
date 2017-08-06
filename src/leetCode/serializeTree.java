@@ -8,9 +8,9 @@ public class serializeTree {
 		populateTree(root,treeVals,0);
 		 return root;
 	 }
-	 private static void populateTree(TreeNode t, String[] resultArry, int number)
+	 private static void populateTree(TreeNode t, Object[] resultArry, int number)
 	 {
-		 t.val=Integer.parseInt(resultArry[number]);
+		 t.val=Integer.parseInt(resultArry[number].toString());
 		 if((2*number+1)<resultArry.length)
 		 {
 			 if(!resultArry[2*number+1].equals("-1"))
@@ -31,14 +31,14 @@ public class serializeTree {
 		 }
 	 }
     public static String serializeTree(TreeNode t){
-    int[] resultArry=new int[50];	
+    Object[] resultArry=new Object[50];	
     Arrays.fill(resultArry, -1);
     populateArray(t,resultArry,0);
     String resultArrayString="";
     int actualCountOfTree=0;
     for(int i=0;i<50;i++)
     {
-    	if(resultArry[i]!=-1)
+    	if(Integer.parseInt(resultArry[i].toString())!=-1)
     	{
     		actualCountOfTree=i+1;
     	}  		
@@ -53,7 +53,7 @@ public class serializeTree {
     return resultArrayString;	
     }
     
-    private static void populateArray(TreeNode t, int[] resultArry, int number)
+    private static void populateArray(TreeNode t, Object[] resultArry, int number)
     {
     	resultArry[number]=t.val;
     	if(t.left!=null){
