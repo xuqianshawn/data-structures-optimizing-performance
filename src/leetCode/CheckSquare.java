@@ -29,14 +29,15 @@ public class CheckSquare {
     public static boolean checkIfNumberIsSquare(long input, long lowerBound,long upperBound)
     {
     	LoopCounter++;
-    	if(lowerBound*lowerBound>input || LoopCounter>1000|| lowerBound==upperBound)
-    	{
-    		return false;
-    	}
-    	else if(lowerBound*lowerBound==input || upperBound*upperBound==input)
+    	if(lowerBound*lowerBound==input || upperBound*upperBound==input)
     	{
     		return true;
     	}
+    	else if(lowerBound*lowerBound>input || LoopCounter>1000|| lowerBound==upperBound)
+    	{
+    		return false;
+    	}
+
     	if((upperBound*upperBound)>input)
     	{
     	long midpoint=(lowerBound+upperBound)/2;
@@ -45,7 +46,7 @@ public class CheckSquare {
     	}
     	if((upperBound*upperBound)<input)
     	{
-    	long endpoint=lowerBound+upperBound;
+    	long endpoint=((2*upperBound-lowerBound)+upperBound)/2; // 2H-low is previous H,,,  (H+previous H)/2 new high
     	 System.out.println("lower "+upperBound+" upper "+endpoint);
     	return checkIfNumberIsSquare(input,upperBound,endpoint);
     	}
@@ -54,7 +55,7 @@ public class CheckSquare {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
      
-     System.out.println(checkIfNumberIsSquare(10000));
+     System.out.println(checkIfNumberIsSquare(100000));
      System.out.println(LoopCounter);
 	}
 
