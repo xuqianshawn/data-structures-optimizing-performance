@@ -1,10 +1,10 @@
 package leetCode;
 
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.TreeSet;
-import java.util.LinkedList;
+import java.util.*;
+//import java.util.Comparator;
+//import java.util.TreeSet;
+//import java.util.LinkedList;
 
 public class MergeLinkedList {
 	private static void populateSetByList(ListNode l1, TreeSet<Integer>set)
@@ -54,8 +54,8 @@ public class MergeLinkedList {
 //	 l2.sort(new Comparator<Integer>(){
 //		@Override
 //		public int compare(Integer n1, Integer n2) {
-//		     //TODO return 1 if rhs should be before lhs 
-//		     //     return -1 if lhs should be before rhs
+//		     //TODO return 1 if n2 should be before n1 
+//		     //     return -1 if n1 should be before n2
 //		     //     return 0 otherwise
 //			 if(n1<n2)
 //			 {
