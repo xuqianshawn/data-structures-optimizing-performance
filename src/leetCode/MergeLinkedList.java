@@ -49,63 +49,63 @@ public class MergeLinkedList {
 			l2.add(e);
 		}
 	 }
-	 Collections.sort(l2);
+	// Collections.sort(l2);
 	 //sort using Comparator equivalent to Collections.sort
-//	 l2.sort(new Comparator<Integer>(){
-//		@Override
-//		public int compare(Integer n1, Integer n2) {
-//		     //TODO return 1 if n2 should be before n1 
-//		     //     return -1 if n1 should be before n2
-//		     //     return 0 otherwise
-//			 if(n1<n2)
-//			 {
-//				 return -1;
-//			 }
-//			 else if(n1>n2){
-//				
-//					 return 1;
-//				 
-//			 }
-//			 else {
-//				return 0;
-//			}
-//		}
-//	 });
+	 l2.sort(new Comparator<Integer>(){
+		@Override
+		public int compare(Integer n1, Integer n2) {
+		     //TODO return 1 if n2 should be before n1 
+		     //     return -1 if n1 should be before n2
+		     //     return 0 otherwise
+			 if(n1<n2)
+			 {
+				 return -1;
+			 }
+			 else if(n1>n2){
+				
+					 return 1;
+				 
+			 }
+			 else {
+				return 0;
+			}
+		}
+	 });
 	 
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		LinkedList<Integer> l1 = new LinkedList<Integer>();
-//		l1.add(1);
-//		l1.add(2);
-//		l1.add(3);
-//		LinkedList<Integer> l2 = new LinkedList<Integer>();
-//		l2.add(5);
-//		l2.add(3);
-//		l2.add(4);
-//		MergeLinkedList(l1, l2);
-//		System.out.println(l2);
-		
-		ListNode l1=new ListNode(1);
-		ListNode l12=new ListNode(2);
-		ListNode l13=new ListNode(3);
-		l1.next=l12;
-		l12.next=l13;
-		
-		
-		
-		ListNode l2=new ListNode(3);
-		ListNode l22=new ListNode(3);
-		ListNode l23=new ListNode(5);
-		l2.next=l22;
-		l22.next=l23;
-		
-		
-		ListNode l3=MergeLinkedList(l1,l2);
-		System.out.println(l1);
+		LinkedList<Integer> l1 = new LinkedList<Integer>();
+		l1.add(1);
+		l1.add(2);
+		l1.add(3);
+		LinkedList<Integer> l2 = new LinkedList<Integer>();
+		l2.add(5);
+		l2.add(3);
+		l2.add(4);
+		MergeLinkedList(l1, l2);
 		System.out.println(l2);
-		System.out.println(l3);
+		
+//		ListNode l1=new ListNode(1);
+//		ListNode l12=new ListNode(2);
+//		ListNode l13=new ListNode(3);
+//		l1.next=l12;
+//		l12.next=l13;
+		
+		
+		
+//		ListNode l2=new ListNode(3);
+//		ListNode l22=new ListNode(3);
+//		ListNode l23=new ListNode(5);
+//		l2.next=l22;
+//		l22.next=l23;
+//		
+//		
+//		ListNode l3=MergeLinkedList(l1,l2);
+//		System.out.println(l1);
+//		System.out.println(l2);
+//		System.out.println(l3);
 	}
 
 }

@@ -1,6 +1,7 @@
 package leetCode;
 
-import java.util.ArrayList;
+import java.util.*;
+
 
 import org.reactfx.value.Var;
 
@@ -23,6 +24,7 @@ public class MergeArrayList {
 			}
 		}
 		System.out.println(duplicateCount);
+		Collections.sort(l2, Collections.reverseOrder());
 		return l2;
 	}
 

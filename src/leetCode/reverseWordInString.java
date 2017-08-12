@@ -1,6 +1,6 @@
 package leetCode;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class reverseWordInString {
 	// http://practice.geeksforgeeks.org/problems/reverse-words-in-a-given-string/0

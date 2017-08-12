@@ -1,5 +1,7 @@
 package leetCode;
 
+import java.sql.Ref;
+
 public class CheckSquare {
 //    public static boolean checkIfNumberIsSquare(long input)
 //    {
