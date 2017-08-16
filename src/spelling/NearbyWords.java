@@ -118,7 +118,6 @@ public class NearbyWords implements SpellingSuggest {
 	 */
 	public void deletions(String s, List<String> currentList, boolean wordsOnly) {
 		// TODO: Implement this method
-		// TODO: Implement this method
 		for (int index = 0; index < s.length(); index++) {
 			// use StringBuffer for an easy interface to permuting the
 			// letters in the String
@@ -166,7 +165,7 @@ public class NearbyWords implements SpellingSuggest {
 		while (!queue.isEmpty() && numSuggestions > 0) {
 			String curr = queue.remove(0);
 			List<String> neighbors = distanceOne(curr, true);
-			if ((wordCount = wordCount + neighbors.size()) > THRESHOLD) {
+			if ((wordCount + neighbors.size()) > THRESHOLD) {
 				break;
 			}
 			wordCount = wordCount + neighbors.size();
