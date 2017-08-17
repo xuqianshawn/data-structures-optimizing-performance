@@ -1,8 +1,12 @@
 package spelling;
 
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
+import java.util.Vector;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -136,7 +140,9 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
              returnlist.add(node.getText());
              numCompletions--;
          }
-         Queue<TrieNode> queue = new LinkedList<>();
+         Queue<TrieNode> queue = new LinkedList<TrieNode>();
+         //Vector<TrieNode> stack = new Stack<TrieNode>();
+       //Stack<TrieNode> stack = new Stack<TrieNode>();
          while (numCompletions > 0){
              Set<Character> children = node.getValidNextCharacters();
              for ( Character c : children) {
@@ -144,8 +150,9 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
                  if(nextNode.endsWord()){
                      returnlist.add(nextNode.getText());
                      numCompletions--;
-                     if (numCompletions == 0) {
-                         break;
+                     if(numCompletions<=0)
+                     {
+                    	 break;
                      }
                  }
                  queue.add(nextNode);

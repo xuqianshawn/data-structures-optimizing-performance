@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author UC San Diego Intermediate MOOC team
@@ -147,7 +148,7 @@ public class NearbyWords implements SpellingSuggest {
 	public List<String> suggestions(String word, int numSuggestions) {
 
 		// initial variables
-		List<String> queue = new LinkedList<String>(); // String to explore
+		Queue<String> queue = new LinkedList<String>(); // String to explore
 		HashSet<String> visited = new HashSet<String>(); // to avoid exploring
 															// the same
 															// string multiple
@@ -162,20 +163,22 @@ public class NearbyWords implements SpellingSuggest {
 		// algorithm
 		int wordCount = 0;
 
-		while (!queue.isEmpty() && numSuggestions > 0) {
-			String curr = queue.remove(0);
-			List<String> neighbors = distanceOne(curr, true);
-			if ((wordCount + neighbors.size()) > THRESHOLD) {
-				break;
-			}
-			wordCount = wordCount + neighbors.size();
-			for (String neighbor : neighbors) {
-				if (!visited.contains(neighbor)) {
-					visited.add(neighbor);
-					queue.add(neighbor);
-					if (dict.isWord(neighbor)) {
-						retList.add(neighbor);
+		while (queue.size() > 0 && numSuggestions > 0) {
+			String currentword = queue.poll();
+			List<String> oneMutations = distanceOne(currentword, false);
+			for (String w : oneMutations) {
+				if (!visited.contains(w)) {
+					visited.add(w);
+					queue.add(w);
+					
+					if (dict.isWord(w)) {
 						numSuggestions--;
+						wordCount++;
+						retList.add(w);
+						if(numSuggestions<=0)
+						{
+							break;
+						}
 					}
 				}
 			}
@@ -196,7 +199,7 @@ public class NearbyWords implements SpellingSuggest {
 		System.out.println(l + "\n");
 
 		word = "tailo";
-		List<String> suggest = w.suggestions(word, 10);
+		List<String> suggest = w.suggestions(word, 20);
 		System.out.println("Spelling Suggestions for \"" + word + "\" are:");
 		System.out.println(suggest);
 		// */
