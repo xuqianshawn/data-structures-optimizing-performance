@@ -24,7 +24,7 @@ public class MergeArrayList {
 			}
 		}
 		System.out.println(duplicateCount);
-		Collections.sort(l2, Collections.reverseOrder());
+		Collections.sort(l2); //Collections.sort(l2, Collections.reverseOrder());
 		return l2;
 	}
 
@@ -38,8 +38,8 @@ public class MergeArrayList {
 		l2.add(5);
 		l2.add(3);
 		l2.add(4);
-		mergeTwoArraylist(l1,l2);
-		System.out.println(l2);
+		ArrayList<Integer> mergedList=mergeTwoArraylist(l1,l2);
+		System.out.println(mergedList);
 	}
 
 }

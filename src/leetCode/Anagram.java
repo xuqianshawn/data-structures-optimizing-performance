@@ -64,11 +64,12 @@ public class Anagram {
 		HashMap<Character, Integer> s2 = new HashMap<Character, Integer>();
 		s1.put('a', 1);
 		s2.put('a', 1);
-		System.out.println(s1.equals(s2));
+		//System.out.println(s1.equals(s2));
 		List<Integer> test = findIndexOfAnagramFromStr("ababababab", "aab");
 		for (Integer i : test) {
 			System.out.println(i);
 		}
+		System.out.println("===========");
 		List<Integer> test2 = findIndexOfAnagramFromStr("abab", "ab");
 		for (Integer i : test2) {
 			System.out.println(i);

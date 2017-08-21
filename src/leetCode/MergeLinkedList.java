@@ -40,7 +40,7 @@ public class MergeLinkedList {
 		}
 		return prev;
 	}
-	public static void MergeLinkedList(LinkedList l1,LinkedList l2)
+	public static LinkedList<Object> MergeLinkedList(LinkedList l1,LinkedList l2)
 	{
 	 for(Object e:l1)
 	 {
@@ -71,6 +71,7 @@ public class MergeLinkedList {
 			}
 		}
 	 });
+	return l2;
 	 
 	}
 
@@ -84,8 +85,8 @@ public class MergeLinkedList {
 		l2.add(5);
 		l2.add(3);
 		l2.add(4);
-		MergeLinkedList(l1, l2);
-		System.out.println(l2);
+		LinkedList<Object> l3=MergeLinkedList(l1, l2);
+		System.out.println(l3);
 		
 //		ListNode l1=new ListNode(1);
 //		ListNode l12=new ListNode(2);

@@ -1,13 +1,12 @@
 package leetCode;
 
-import java.awt.List;
 
 public class listManipulation {
     public static ListNode reverseLinkList(ListNode root)
     {
     	ListNode Previous=null;
     	ListNode Current=root;
-    	ListNode Next=Current.next;
+    	ListNode Next=null;
     	while(Current!=null)
     	{
     		Next=Current.next;    			
@@ -27,7 +26,8 @@ public class listManipulation {
 		l1.next=l2;
 		l2.next=l3;
 		l3.next=l4;
-		reverseLinkList(l1);
+		//pass by reference
+		l1=reverseLinkList(l1);
 	}
 
 }
