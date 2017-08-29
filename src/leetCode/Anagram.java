@@ -4,31 +4,28 @@ import java.util.*;
 
 public class Anagram {
 	// https://leetcode.com/problems/find-all-anagrams-in-a-string/description/
-	public static boolean checkAnagramFromStr(String input1, String input2) {
-		if(input1.equals(input2))
-		{
-			return true;
-		}
+	public static HashMap<Character, Integer> constructHashMapByString(String input)
+	{
 		HashMap<Character, Integer> s1 = new HashMap<Character, Integer>();
-		HashMap<Character, Integer> s2 = new HashMap<Character, Integer>();
-		if (input1.length() != input2.length()) {
-			return false;
-		}
-		for (char c : input1.toCharArray()) {
+		for (char c : input.toCharArray()) {
 			if (!s1.containsKey(c)) {
 				s1.put(c, 1);
 			} else {
 				s1.put(c, s1.get(c) + 1);
 			}
 		}
-		for (char c : input2.toCharArray()) {
-			if (!s2.containsKey(c)) {
-				s2.put(c, 1);
-			} else {
-				s2.put(c, s2.get(c) + 1);
-			}
+		return s1;
+	}
+	public static boolean checkAnagramFromStr(String input1, String input2) {
+		if(input1.equals(input2))
+		{
+			return true;
 		}
-		if (s1.equals(s2)) {
+		if (input1.length() != input2.length()) {
+			return false;
+		}
+		
+		if (constructHashMapByString(input1).equals(constructHashMapByString(input2))) {
 			return true;
 		} else {
 			return false;

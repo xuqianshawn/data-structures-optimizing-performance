@@ -24,7 +24,7 @@ public class hummingDistance {
 	}
 	public static int getHummingDist(int input1, int input2)
 	{
-		String str1=Integer.toBinaryString(input1); //system function
+		String str1=convertIntToBinary(input1);//Integer.toBinaryString(input1); //system function
 		String str2=convertIntToBinary(input2);  //my function to do the same thing
 		//System.out.println(str1);
 		if(str1.length()<str2.length())
@@ -56,7 +56,7 @@ public class hummingDistance {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		System.out.println(getHummingDist(1, 4));
+		System.out.println(getHummingDist(5, 2));
 
 	}
 

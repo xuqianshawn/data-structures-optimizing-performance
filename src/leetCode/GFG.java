@@ -6,10 +6,10 @@ import java.io.*;
 
 public class GFG {
 	// http://practice.geeksforgeeks.org/problems/first-non-repeating-Stringacter-in-a-stream/0
-	public static void printNoRepeatingString(String[] inputs) {
-		HashMap<String, Integer> seen = new HashMap<String, Integer>();
-		List<String> sequence = new LinkedList<String>();
-		for (String i : inputs) {
+	public static void printNoRepeatingString(Character[] inputs) {
+		HashMap<Character, Integer> seen = new HashMap<Character, Integer>();
+		List<Character> sequence = new LinkedList<Character>();
+		for (char i : inputs) {
 			if (!seen.containsKey(i)) {
 				seen.put(i, 1);
 				sequence.add(i);
@@ -34,13 +34,20 @@ public class GFG {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		int numberOfTests = Integer.parseInt(sc.nextLine());
-		List<String[]> inputs = new ArrayList<String[]>();
+		List<Character[]> inputs = new ArrayList<Character[]>();
 		for (int i = 0; i < numberOfTests; i++) {
 			int numberOfStrings = Integer.parseInt(sc.nextLine());
 			String[] arrayString = sc.nextLine().split(" ");
-			inputs.add(arrayString);
+			Character[] arrayChar=new Character[arrayString.length];
+			int j=0;
+			for(String s:arrayString)
+			{
+				arrayChar[j]=s.charAt(0);
+				j++;
+			}
+			inputs.add(arrayChar);
 		}
-		for (String[] arrayString : inputs) {
+		for (Character[] arrayString : inputs) {
 			printNoRepeatingString(arrayString);
 		}
 	}

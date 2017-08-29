@@ -28,6 +28,12 @@ public class listManipulation {
 		l3.next=l4;
 		//pass by reference
 		l1=reverseLinkList(l1);
+		while(l1.next!=null)
+		{
+			System.out.println(l1.val);
+			l1=l1.next;
+		}
+		System.out.println(l1.val);
 	}
 
 }
