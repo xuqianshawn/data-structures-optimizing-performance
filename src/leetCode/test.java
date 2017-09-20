@@ -35,7 +35,37 @@ public class test {
 		// System.out.println(allocations);
 		return allLocations;
 	}
-
+    public static Boolean validate(String password) {
+    	 System.out.println(password.indexOf("123"));
+        if(password.length()<12)
+        {
+     	   return false;
+        }
+        int upper = 0, lower = 0, number = 0, special = 0;
+        
+        for(int i = 0; i < password.length(); i++)
+        {
+            char ch = password.charAt(i);
+            if (ch >= 'A' && ch <= 'Z')
+                upper++;
+            else if (ch >= 'a' && ch <= 'z')
+                lower++;
+            else if (ch >= '0' && ch <= '9')
+                number++;
+            else
+                special++;
+        }
+       if(upper<1||lower<1||number<1)
+       {
+     	  return false;
+       }
+       if(password.indexOf("123")>=0)
+       {
+    	  
+     	  return false;
+       }
+       return true;
+    }
 	public static class TextInput {
 		static List<String> _list = new ArrayList();
 
@@ -64,7 +94,9 @@ public class test {
 		input.add('1');
 		input.add('a');
 		input.add('0');
-		System.out.println(input.getValue());
+		String s="abc";
+		
+		System.out.println(validate("Strong1Password"));
 	}
 
 	public static boolean isPalindrome(String word) {
