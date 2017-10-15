@@ -63,6 +63,23 @@ public class serializeTree {
     	populateArray(t.right,resultArry,number*2+2);
     	}
     }
+    public static TreeNode<Integer> trimBST(TreeNode<Integer> root, int L, int R) {
+        if (root == null) {
+            return root;
+        }
+
+        if (root.val > R) {
+            return trimBST(root.left, L, R);
+        }
+
+        if (root.val < L) {
+            return trimBST(root.right, L, R);
+        }
+
+        root.left = trimBST(root.left, L, R);
+        root.right = trimBST(root.right, L, R);
+        return root;
+    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         TreeNode<Integer> t1=new TreeNode<Integer>(1);
@@ -75,6 +92,9 @@ public class serializeTree {
         String treeStr=serializeTree(t1);
         System.out.println(treeStr);
         TreeNode<Integer> root=deserializeTree(treeStr);
+        
+        TreeNode<Integer> root2=trimBST(root,2,5);
+        
 	}
 
 }

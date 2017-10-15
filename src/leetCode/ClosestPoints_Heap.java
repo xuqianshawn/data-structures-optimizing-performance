@@ -9,7 +9,7 @@ import javax.xml.ws.AsyncHandler;
 
 import org.w3c.dom.css.ElementCSSInlineStyle;
 
-class Point {
+class Point implements Comparable  {
 	private int _x;
 	private int _y;
 
@@ -20,6 +20,19 @@ class Point {
 
 	double getDistance() {
 		return _x * _x + _y * _y;
+	}
+
+	@Override
+	public int compareTo(Object y) {
+		// TODO Auto-generated method stub
+		Point temp=(Point)y;
+		if (temp.getDistance() > this.getDistance()) {
+			return -1;
+		} else if (temp.getDistance() < this.getDistance()) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 }
 
@@ -38,7 +51,7 @@ public class ClosestPoints_Heap {
 	}
 
 	public static Point[] getKclosestPoints(Point[] points, int k) {
-		PriorityQueue<Point> Heap = new PriorityQueue<Point>(k, new MyComparator());
+		PriorityQueue<Point> Heap = new PriorityQueue<Point>(k); //new new PriorityQueue<Point>(k, new MyComparator());
 		Point[] shortestPoints = new Point[k];
 		int i = 0;
 		for (Point p : points) {
